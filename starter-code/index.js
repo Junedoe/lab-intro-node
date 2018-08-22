@@ -14,10 +14,15 @@ class SortedList {
         return this.items[pos - 1];
     }
     max() {
-        return Math.max(...this.items);
+        if (this.length === 0) {
+            throw new Error('EmptySortedList');
+        }
+        // return this.items[this.length-1]
+        return this.get(this.length);
     }
     min() {
-        return Math.min(...this.items);
+        if (this.length === 0) throw new Error('EmptySortedList');
+        return this.items[0];
     }
     average() {
         return this.sum() / this.length;
